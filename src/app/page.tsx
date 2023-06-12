@@ -1,14 +1,16 @@
 import { Container } from '@/shared/ui';
-import { PostPreview, getPosts } from '@/entities/post';
+import { PostPreview, getPostsMetadata } from '@/entities/post';
 
 export default async function Home() {
-  const posts = await getPosts();
+  const posts = await getPostsMetadata();
 
   return (
     <Container>
-      {posts.map(post => (
-        <PostPreview key={post.id} id={post.id} {...post.data.frontmatter} />
-      ))}
+      <div className="grid gap-8">
+        {posts.map(post => (
+          <PostPreview key={post.id} {...post} />
+        ))}
+      </div>
     </Container>
   );
 }

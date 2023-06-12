@@ -1,0 +1,47 @@
+---
+title: Полезные фишки на CSS
+date: 2023-06-12
+description: В этой статье разберем новые возможности CSS, которые упростят вашу жизнь верстальщика
+---
+
+# Полезные фишки на CSS
+
+Полезные шаблоны для написания стилей
+
+#### Центрирование с `postition: absolute`
+
+<CodeSample>
+  <CodeSample.Code>
+    ##### HTML
+
+    ```html
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+    ```
+
+    ##### CSS
+
+    ```css
+    .parent {
+      position: relative;
+    }
+
+    .child {
+      width: 30px;
+      height: 30px;
+
+      /* Располагает элемент ровно в центре родителя */
+      position: absolute;
+      inset: 0;
+      margin: auto;
+    }
+    ```
+
+  </CodeSample.Code>
+  <CodeSample.Result>
+    <div className="relative h-full border-4 border-dashed">
+      <div className="absolute inset-0 m-auto h-8 w-8 bg-black"></div>
+    </div>
+  </CodeSample.Result>
+</CodeSample>

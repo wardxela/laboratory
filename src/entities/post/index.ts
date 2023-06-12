@@ -1,3 +1,4 @@
 export type * from './types';
-export * from './lib';
+export { toMdxFilename } from './lib';
+export * from './server-actions';
 export * from './ui';

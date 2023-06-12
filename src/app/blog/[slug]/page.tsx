@@ -1,23 +1,46 @@
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import { getAllPostsNames, getPost } from '@/entities/post';
+import { Metadata } from 'next';
 import { Container } from '@/shared/ui';
+import { MDXrsc } from '@/entities/mdx';
+import {
+  getAllPostsSlugs,
+  getPostContent,
+  getPostMetadata,
+  toMdxFilename,
+} from '@/entities/post';
 
-type BlogPostProps = {
+type PostProps = {
   params: {
     slug: string;
   };
 };
 
-export default async function BlogPost({ params }: BlogPostProps) {
-  const post = await getPost(`${params.slug}.mdx`);
+export default async function Post({ params: { slug } }: PostProps) {
+  const post = await getPostContent(toMdxFilename(slug));
 
   return (
     <Container>
-      <MDXRemote source={post} options={{ parseFrontmatter: true }} />
+      <MDXrsc source={post} />
     </Container>
   );
 }
 
+export async function generateMetadata({
+  params: { slug },
+}: PostProps): Promise<Metadata> {
+  const meta = await getPostContent(toMdxFilename(slug)).then(getPostMetadata);
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    authors: [
+      {
+        name: 'Alexander Tyurinov',
+        url: 'https://vk.com/wardxela/',
+      },
+    ],
+  };
+}
+
 export async function generateStaticParams() {
-  return getAllPostsNames().then(names => names.map(name => ({ slug: name })));
+  return getAllPostsSlugs().then(slugs => slugs.map(slug => ({ slug })));
 }

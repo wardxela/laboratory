@@ -1,0 +1,1 @@
+export { MDXrsc } from './MDX';
