@@ -46,5 +46,7 @@ export async function getPostContent(filename: string) {
  * @returns array of MDX file names
  */
 async function getFilenames() {
-  return readdir(POSTS_DIR).then(filenames => filenames.filter(onlyMDX));
+  return readdir(resolve(POSTS_DIR)).then(filenames =>
+    filenames.filter(onlyMDX)
+  );
 }
