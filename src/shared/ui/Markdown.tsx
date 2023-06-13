@@ -1,6 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 import rehypeHighlight from 'rehype-highlight/lib';
+import { CodeSandbox } from './CodeSandbox';
 
 function CodeSample({ children }: PropsWithChildren) {
   return <div className="grid grid-cols-2 gap-4">{children}</div>;
@@ -25,7 +26,8 @@ CodeSample.Result = function Result({ children }: PropsWithChildren) {
 };
 
 const components: MDXRemoteProps['components'] = {
-  CodeSample: CodeSample,
+  CodeSample,
+  CodeSandbox,
 };
 
 export function Markdown(
