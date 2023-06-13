@@ -1,16 +1,8 @@
-import { Container } from '@/shared/ui';
-import { PostPreview, getPostsMetadata } from '@/entities/post';
-
-export default async function Home() {
-  const posts = await getPostsMetadata();
-
-  return (
-    <Container>
-      <div className="grid gap-8">
-        {posts.map(post => (
-          <PostPreview key={post.id} {...post} />
-        ))}
-      </div>
-    </Container>
-  );
+export default function Index() {
+  return <div>Hello world</div>;
 }
+
+export const metadata = {
+  title: "Ward's Lab",
+  description: 'Личный сайт wardxela',
+};

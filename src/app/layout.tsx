@@ -1,24 +1,25 @@
+import type { PropsWithChildren } from 'react';
+
 import './globals.css';
 import './highlight.css';
+
+import { Container } from '@/shared/ui';
+import { Footer } from '@/widgets/Footer';
 import { Header } from '@/widgets/Header';
 
-export const metadata = {
-  title: "Ward's Lab",
-  description: 'Блог о разработке и программировании',
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="ru">
-      <body>
-        <div className="mb-4">
+    <html lang="ru" className="h-full">
+      <body className="h-full dark:bg-slate-950">
+        <div className="flex h-full flex-col gap-4">
           <Header />
+          <div className="mt-20">
+            <Container>{children}</Container>
+          </div>
+          <div className="mt-auto">
+            <Footer />
+          </div>
         </div>
-        {children}
       </body>
     </html>
   );

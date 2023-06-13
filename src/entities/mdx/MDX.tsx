@@ -12,6 +12,7 @@ const components: MDXRemoteProps['components'] = {
   h6: Tag.H6,
   p: Tag.P,
   hr: Tag.HR,
+  a: Tag.A,
 
   // Custom
   CodeSample: Tag.CodeSample,
