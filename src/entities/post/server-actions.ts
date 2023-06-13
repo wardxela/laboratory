@@ -39,14 +39,14 @@ export async function getAllPostsSlugs() {
  * @returns Buffer containing MDX data
  */
 export async function getPostContent(filename: string) {
-  return readFile(resolve(POSTS_DIR, filename));
+  return readFile(resolve(process.cwd(), POSTS_DIR, filename));
 }
 
 /**
  * @returns array of MDX file names
  */
 async function getFilenames() {
-  return readdir(resolve(POSTS_DIR)).then(filenames =>
+  return readdir(resolve(process.cwd(), POSTS_DIR)).then(filenames =>
     filenames.filter(onlyMDX)
   );
 }
