@@ -7,7 +7,7 @@ export function Header() {
       <Container>
         <div className="flex h-14 items-center">
           <Link
-            className="font-semibold text-slate-800 transition-colors hover:text-blue-400 dark:text-slate-500 dark:hover:text-blue-400"
+            className="font-semibold text-slate-800 transition-colors hover:text-blue-400 dark:text-slate-200 dark:hover:text-blue-400"
             href="/"
           >
             Ward&apos;s Lab
@@ -16,7 +16,7 @@ export function Header() {
             <ul className="flex gap-6">
               <li>
                 <Link
-                  className="font-semibold text-slate-800 transition-colors hover:text-blue-400 dark:text-slate-500 dark:hover:text-blue-400"
+                  className="font-semibold text-slate-800 transition-colors hover:text-blue-400 dark:text-slate-200 dark:hover:text-blue-400"
                   href="/blog"
                 >
                   Блог
@@ -24,7 +24,7 @@ export function Header() {
               </li>
               <li>
                 <a
-                  className="font-semibold text-slate-800 transition-colors hover:text-blue-400 dark:text-slate-500 dark:hover:text-blue-400"
+                  className="font-semibold text-slate-800 transition-colors hover:text-blue-400 dark:text-slate-200 dark:hover:text-blue-400"
                   href="https://vk.com/wardxela"
                   target="_blank"
                 >
@@ -33,7 +33,7 @@ export function Header() {
               </li>
               <li>
                 <a
-                  className="font-semibold text-slate-800 transition-colors hover:text-blue-400 dark:text-slate-500 dark:hover:text-blue-400"
+                  className="font-semibold text-slate-800 transition-colors hover:text-blue-400 dark:text-slate-200 dark:hover:text-blue-400"
                   href="https://github.com/wardxela"
                   target="_blank"
                 >

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { MDXrsc } from '@/entities/mdx';
+import { Markdown } from '@/shared/ui';
 import {
   getAllPostsSlugs,
   getPostContent,
@@ -15,7 +15,7 @@ type PostProps = {
 
 export default async function Post({ params: { slug } }: PostProps) {
   const post = await getPostContent(toMdxFilename(slug));
-  return <MDXrsc source={post} />;
+  return <Markdown source={post} />;
 }
 
 export async function generateMetadata({
