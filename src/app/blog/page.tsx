@@ -1,5 +1,7 @@
 import { PostPreview, getPostsMetadata } from '@/entities/post';
 
+export const revalidate = 3600;
+
 export default async function Home() {
   const posts = await getPostsMetadata();
 
